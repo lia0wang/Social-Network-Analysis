@@ -7,7 +7,7 @@
 #include <assert.h>
 
 #include "FloydWarshall.h"
-#include "Graph.h"
+#include "../graphADT/Graph.h"
 
 // Function Declaration
 static ShortestPaths newShortestPaths(Graph g);

@@ -1,9 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "FloydWarshall.h"
-#include "GraphRead.h"
+#include "../analysisAlgorithms/FloydWarshall.h"
+#include "../graphADT/GraphRead.h"
 
 static void displayShortestPathsStruct(ShortestPaths sps);
 

@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "CentralityMeasures.h"
-#include "GirvanNewman.h"
-#include "Graph.h"
-#include "FloydWarshall.h"
+#include "../analysisAlgorithms/CentralityMeasures.h"
+#include "../analysisAlgorithms/GirvanNewman.h"
+#include "../graphADT/Graph.h"
+#include "../analysisAlgorithms/FloydWarshall.h"
 
 // Function Declaration.
 static Dendrogram createDendogramNode(int v);

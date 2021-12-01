@@ -8,7 +8,7 @@
 
 #include "CentralityMeasures.h"
 #include "FloydWarshall.h"
-#include "Graph.h"
+#include "../graphADT/Graph.h"
 
 // Funcition Declaration
 static EdgeValues newEvs(Graph g);

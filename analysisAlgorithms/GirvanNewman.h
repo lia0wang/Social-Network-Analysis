@@ -8,7 +8,7 @@
 
 #include <stdbool.h>
 
-#include "Graph.h"
+#include "../graphADT/Graph.h"
 
 typedef struct DNode *Dendrogram;
 

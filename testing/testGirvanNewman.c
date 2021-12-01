@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "BSTree.h"
-#include "GraphRead.h"
-#include "GirvanNewman.h"
+#include "../bsTreeADT/BSTree.h"
+#include "../graphADT/GraphRead.h"
+#include "../analysisAlgorithms/GirvanNewman.h"
 
 void printClusters(Tree t, int depth) {
 	// To avoid infinite looping, due to a possible  

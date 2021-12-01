@@ -9,7 +9,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
-#include "Graph.h"
+#include "../graphADT/Graph.h"
 
 #define INFINITY INT_MAX
 

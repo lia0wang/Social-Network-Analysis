@@ -11,9 +11,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "CentralityMeasures.h"
-#include "Graph.h"
-#include "GraphRead.h"
+#include "../analysisAlgorithms/CentralityMeasures.h"
+#include "../graphADT/Graph.h"
+#include "../graphADT/GraphRead.h"
 
 #define BUFF_SIZE 1024
 
