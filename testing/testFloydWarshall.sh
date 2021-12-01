@@ -10,16 +10,16 @@ make testFloydWarshall || exit
 run_test()
 {
 	i="$1"
-	rm -f "FloydWarshallTests/$i.out"
-	./testFloydWarshall "graphs/$i.in" > "FloydWarshallTests/$i.out"
+	rm -f "../outputs/FloydWarshallTests/$i.out"
+	./testFloydWarshall "../inputs/$i.in" > "../outputs/FloydWarshallTests/$i.out"
 	
-	if [ ! -f "FloydWarshallTests/$i.exp" ]
+	if [ ! -f "../outputs/FloydWarshallTests/$i.exp" ]
 	then
 		echo -e "=========== ${YELLOW}[$i] No Expected Output Available${NC} ==========="
 		return
 	fi
 	
-	r="$(diff "FloydWarshallTests/$i.out" "FloydWarshallTests/$i.exp")"
+	r="$(diff "../outputs/FloydWarshallTests/$i.out" "../outputs/FloydWarshallTests/$i.exp")"
 	
 	if [ "$r" = "" ]
 	then
@@ -27,31 +27,31 @@ run_test()
 	else
 		echo -e "=========== ${RED}[$i] Output Mismatch${NC} ==========="
 		echo -e "${RED}Your output:${NC}"
-		cat "FloydWarshallTests/$i.out"
+		cat "../outputs/FloydWarshallTests/$i.out"
 		echo -e "${RED}Expected output:${NC}"
-		cat "FloydWarshallTests/$i.exp"
-		echo -e "${RED}Your output in: ./FloydWarshallTests/$i.out${NC}"
-		echo -e "${RED}Expected output in: ./FloydWarshallTests/$i.exp${NC}"
+		cat "../outputs/FloydWarshallTests/$i.exp"
+		echo -e "${RED}Your output in: ../outputs/FloydWarshallTests/$i.out${NC}"
+		echo -e "${RED}Expected output in: ../outputs/FloydWarshallTests/$i.exp${NC}"
 	fi
 }
 
 if [ $# -eq 1 ]
 then
-	if [ ! -f "graphs/$1.in" ]
+	if [ ! -f "../inputs/$1.in" ]
 	then
-		echo "error: graphs/$1.in does not exist"
+		echo "error: ../inputs/$1.in does not exist"
 		exit 1
 	fi
 	run_test $1
 elif [ $# -eq 0 ]
 then
-	for f in graphs/*.in
+	for f in ../inputs/*.in
 	do
 		i=$(basename "$f" .in)
 		run_test "$i"
 	done
 else
-	echo "usage: $0 <test number (1 for graphs/1.in, etc.)>"
+	echo "usage: $0 <test number (1 for ../inputs/1.in, etc.)>"
 	exit 1
 fi
 

@@ -10,16 +10,16 @@ make testCentralityMeasures || exit
 run_test()
 {
 	i=$1
-	rm -f "CentralityMeasuresTests/$i.out"
-	./testCentralityMeasures "graphs/$i.in" > "CentralityMeasuresTests/$i.out"
+	rm -f "../outputs/CentralityMeasuresTests/$i.out"
+	./testCentralityMeasures "../inputs/$i.in" > "../outputs/CentralityMeasuresTests/$i.out"
 	
-	if [ ! -f "CentralityMeasuresTests/$i.exp" ]
+	if [ ! -f "../outputs/CentralityMeasuresTests/$i.exp" ]
 	then
 		echo -e "=========== ${YELLOW}[$i] No Expected Output Available${NC} ==========="
 		return
 	fi
 	
-	r="$(diff "CentralityMeasuresTests/$i.out" "CentralityMeasuresTests/$i.exp")"
+	r="$(diff "../outputs/CentralityMeasuresTests/$i.out" "../outputs/CentralityMeasuresTests/$i.exp")"
 	
 	if [ "$r" = "" ]
 	then
@@ -27,31 +27,31 @@ run_test()
 	else
 		echo -e "=========== ${RED}[$i] Output Mismatch${NC} ==========="
 		echo -e "${RED}Your output:${NC}"
-		cat "CentralityMeasuresTests/$i.out"
+		cat "../outputs/CentralityMeasuresTests/$i.out"
 		echo -e "${RED}Expected output:${NC}"
-		cat "CentralityMeasuresTests/$i.exp"
-		echo -e "${RED}Your output in: ./CentralityMeasuresTests/$i.out${NC}"
-		echo -e "${RED}Expected output in: ./CentralityMeasuresTests/$i.exp${NC}"
+		cat "../outputs/CentralityMeasuresTests/$i.exp"
+		echo -e "${RED}Your output in: ../outputs/CentralityMeasuresTests/$i.out${NC}"
+		echo -e "${RED}Expected output in: ../outputs/CentralityMeasuresTests/$i.exp${NC}"
 	fi
 }
 
 if [ $# -eq 1 ]
 then
-	if [ ! -f "graphs/$1.in" ]
+	if [ ! -f "../inputs/$1.in" ]
 	then
-		echo "error: graphs/$1.in does not exist"
+		echo "error: ../inputs/$1.in does not exist"
 		exit 1
 	fi
 	run_test $1
 elif [ $# -eq 0 ]
 then
-	for f in graphs/*.in
+	for f in ../inputs/*.in
 	do
 		i=$(basename "$f" .in)
 		run_test "$i"
 	done
 else
-	echo "usage: $0 <test number (1 for graphs/1.in, etc.)>"
+	echo "usage: $0 <test number (1 for ../inputs/1.in, etc.)>"
 	exit 1
 fi
 
