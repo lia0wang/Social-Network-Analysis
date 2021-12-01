@@ -5,15 +5,15 @@ CFLAGS = -Wall -Werror -g
 
 all: testFloydWarshall testCentralityMeasures testGirvanNewman
 
-testFloydWarshall: testFloydWarshall.c FloydWarshall.c Graph.c GraphRead.c
-	$(CC) $(CFLAGS) -o testFloydWarshall testFloydWarshall.c FloydWarshall.c Graph.c GraphRead.c
+testFloydWarshall: testing/testFloydWarshall.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c
+	$(CC) $(CFLAGS) -o testing/testFloydWarshall testing/testFloydWarshall.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c
 
-testCentralityMeasures: testCentralityMeasures.c CentralityMeasures.c FloydWarshall.c Graph.c GraphRead.c
-	$(CC) $(CFLAGS) -o testCentralityMeasures testCentralityMeasures.c CentralityMeasures.c FloydWarshall.c Graph.c GraphRead.c
+testCentralityMeasures: testing/testCentralityMeasures.c analysisAlgorithms/CentralityMeasures.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c
+	$(CC) $(CFLAGS) -o testing/testCentralityMeasures testing/testCentralityMeasures.c analysisAlgorithms/CentralityMeasures.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c
 
-testGirvanNewman: testGirvanNewman.c GirvanNewman.c CentralityMeasures.c FloydWarshall.c Graph.c GraphRead.c BSTree.c
-	$(CC) $(CFLAGS) -o testGirvanNewman testGirvanNewman.c GirvanNewman.c CentralityMeasures.c FloydWarshall.c Graph.c GraphRead.c BSTree.c
+testGirvanNewman: testing/testGirvanNewman.c analysisAlgorithms/GirvanNewman.c analysisAlgorithms/CentralityMeasures.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c bsTreeADT//BSTree.c
+	$(CC) $(CFLAGS) -o testing/testGirvanNewman testing/testGirvanNewman.c analysisAlgorithms/GirvanNewman.c analysisAlgorithms/CentralityMeasures.c analysisAlgorithms/FloydWarshall.c graphADT/Graph.c graphADT/GraphRead.c bsTreeADT/BSTree.c
 
 clean:
-	rm -rf testFloydWarshall testCentralityMeasures testGirvanNewman
+	rm -rf testing/testFloydWarshall testing/testCentralityMeasures testing/testGirvanNewman
 
